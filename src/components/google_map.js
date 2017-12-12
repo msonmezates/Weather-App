@@ -1,18 +1,22 @@
-import React from 'react';
+/* eslint-disable no-undef */ //this line removes google is not defined error!
 
-export default (props) => {
+import React, { Component } from 'react';
+
+export default class GoogleMap extends Component {
 
   componentDidMount() {
-    new google.maps.Map(refs.map, {
+    new google.maps.Map(this.refs.map, {
       zoom: 12,
       center: {
-        lat: props.lat,
-        lng: props.lon
+        lat: this.props.lat, //latitude
+        lng: this.props.lon  //longitude
       }
     });
   }
 
-  return (
-    <div ref="map" />
-  );
+  render() {
+    return (
+      <div ref="map" />
+    );
+  }
 }
